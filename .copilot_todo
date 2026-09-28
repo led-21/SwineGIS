@@ -1,0 +1,6 @@
+- [ ] Add UI button to generate lagoons/biodigester report and necessary inputs for TRH etc.
+- [ ] Implement calculations for biodigester volume, lagoon sizing, hydraulic retention using formulas and tables.
+- [ ] Create report generation logic (probably text/HTML) and allow export/display.
+- [ ] Incorporate phosphorus-based fertigation area estimates for pasture/soy/milho using provided P2O5 data.
+- [ ] Wire button to run calculations using total animals input and selected TRH.
+- [ ] Update documentation and tests if needed.
