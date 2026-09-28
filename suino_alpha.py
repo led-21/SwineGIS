@@ -317,9 +317,9 @@ class SuinoAlpha:
             QgsField('capacidade', QVariant.Int),
             QgsField('tipo_bebedouro', QVariant.String),
             QgsField('tipo_comedouro', QVariant.String),
-            QgsField('largura_m', QVariant.Double),
-            QgsField('comprim_m', QVariant.Double),
-            QgsField('area_m2', QVariant.Double),
+            QgsField('largura_m', QVariant.Double, 'double', 10, 2),
+            QgsField('comprim_m', QVariant.Double, 'double', 10, 2),
+            QgsField('area_m2', QVariant.Double, 'double', 12, 2),
             QgsField('crs', QVariant.String),
             QgsField('observacao', QVariant.String)
         ])
@@ -382,15 +382,15 @@ class SuinoAlpha:
             feature.setGeometry(QgsGeometry.fromPolygonXY([points]))
             
             # Set attributes (sempre em metros para referência)
-            area = largura * comprimento
+            area = round(float(largura * comprimento), 2)
             feature.setAttributes([
                 i + 1,  # id_galpao
-                suinos_por_galpao,  # capacidade
+                int(suinos_por_galpao),  # capacidade
                 "chupeta",  # tipo_bebedouro
                 "funil",  # tipo_comedouro
-                largura,  # largura_m (sempre em metros)
-                comprimento,  # comprim_m (sempre em metros)
-                area,  # area_m2 (sempre em metros quadrados)
+                round(float(largura), 2),  # largura_m
+                round(float(comprimento), 2),  # comprim_m
+                area,  # area_m2
                 project_crs.authid(),  # crs
                 f"Galpão {i+1} - {suinos_por_galpao} suínos"  # observacao
             ])
