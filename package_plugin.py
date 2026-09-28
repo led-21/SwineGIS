@@ -35,6 +35,7 @@ INCLUDE_DIRS = [
     "core",
     "gis",
     "ui",
+    "resources",
 ]
 
 EXCLUDE_PATTERNS = [
