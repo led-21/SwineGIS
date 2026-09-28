@@ -1,244 +1,267 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>SuinoAlphaDialogBase</class>
- <widget class="QDialog" name="SuinoAlphaDialogBase" >
-  <property name="geometry" >
+ <widget class="QDialog" name="SuinoAlphaDialogBase">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>480</width>
+    <height>520</height>
    </rect>
   </property>
-  <property name="windowTitle" >
-   <string>SuinoAlpha</string>
+  <property name="windowTitle">
+   <string>SwineSpatialPlanner - Dimensionamento de Instalações</string>
   </property>
-  <widget class="QLabel" name="label_type" >
-   <property name="geometry" >
-    <rect>
-     <x>20</x>
-     <y>20</y>
-     <width>50</width>
-     <height>25</height>
-    </rect>
+  <layout class="QVBoxLayout" name="mainVerticalLayout">
+   <property name="spacing">
+    <number>10</number>
    </property>
-   <property name="text" >
-    <string>Tipo:</string>
+   <property name="leftMargin">
+    <number>15</number>
    </property>
-  </widget>
-  <widget class="QComboBox" name="comboBox_type" >
-   <property name="geometry" >
-    <rect>
-     <x>80</x>
-     <y>20</y>
-     <width>100</width>
-     <height>25</height>
-    </rect>
+   <property name="topMargin">
+    <number>15</number>
    </property>
-  </widget>
-  <widget class="QLabel" name="label_shape" >
-   <property name="geometry" >
-    <rect>
-     <x>20</x>
-     <y>50</y>
-     <width>50</width>
-     <height>25</height>
-    </rect>
+   <property name="rightMargin">
+    <number>15</number>
    </property>
-   <property name="text" >
-    <string>Forma:</string>
+   <property name="bottomMargin">
+    <number>15</number>
    </property>
-  </widget>
-  <widget class="QComboBox" name="comboBox_shape" >
-   <property name="geometry" >
-    <rect>
-     <x>80</x>
-     <y>50</y>
-     <width>100</width>
-     <height>25</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_length" >
-   <property name="geometry" >
-    <rect>
-     <x>20</x>
-     <y>80</y>
-     <width>80</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="text" >
-    <string>Comprimento:</string>
-   </property>
-  </widget>
-  <widget class="QDoubleSpinBox" name="spinBox_length" >
-   <property name="geometry" >
-    <rect>
-     <x>120</x>
-     <y>80</y>
-     <width>60</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="maximum" >
-    <double>1000.0</double>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_width" >
-   <property name="geometry" >
-    <rect>
-     <x>20</x>
-     <y>110</y>
-     <width>50</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="text" >
-    <string>Largura:</string>
-   </property>
-  </widget>
-  <widget class="QDoubleSpinBox" name="spinBox_width" >
-   <property name="geometry" >
-    <rect>
-     <x>120</x>
-     <y>110</y>
-     <width>60</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="maximum" >
-    <double>1000.0</double>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_radius" >
-   <property name="geometry" >
-    <rect>
-     <x>20</x>
-     <y>140</y>
-     <width>50</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="text" >
-    <string>Raio:</string>
-   </property>
-  </widget>
-  <widget class="QDoubleSpinBox" name="spinBox_radius" >
-   <property name="geometry" >
-    <rect>
-     <x>120</x>
-     <y>140</y>
-     <width>60</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="maximum" >
-    <double>500.0</double>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_number" >
-   <property name="geometry" >
-    <rect>
-     <x>20</x>
-     <y>170</y>
-     <width>50</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="text" >
-    <string>Número:</string>
-   </property>
-  </widget>
-  <widget class="QSpinBox" name="spinBox_number" >
-   <property name="geometry" >
-    <rect>
-     <x>120</x>
-     <y>170</y>
-     <width>60</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="maximum" >
-    <int>10</int>
-   </property>
-   <property name="value" >
-    <int>1</int>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_x" >
-   <property name="geometry" >
-    <rect>
-     <x>200</x>
-     <y>20</y>
-     <width>20</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="text" >
-    <string>X:</string>
-   </property>
-  </widget>
-  <widget class="QDoubleSpinBox" name="spinBox_x" >
-   <property name="geometry" >
-    <rect>
-     <x>230</x>
-     <y>20</y>
-     <width>80</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="minimum" >
-    <double>-180.0</double>
-   </property>
-   <property name="maximum" >
-    <double>180.0</double>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_y" >
-   <property name="geometry" >
-    <rect>
-     <x>200</x>
-     <y>50</y>
-     <width>20</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="text" >
-    <string>Y:</string>
-   </property>
-  </widget>
-  <widget class="QDoubleSpinBox" name="spinBox_y" >
-   <property name="geometry" >
-    <rect>
-     <x>230</x>
-     <y>50</y>
-     <width>80</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="minimum" >
-    <double>-90.0</double>
-   </property>
-   <property name="maximum" >
-    <double>90.0</double>
-   </property>
-  </widget>
-  <widget class="QDialogButtonBox" name="button_box" >
-   <property name="geometry" >
-    <rect>
-     <x>30</x>
-     <y>240</y>
-     <width>341</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <property name="orientation" >
-    <enum>Qt::Horizontal</enum>
-   </property>
-   <property name="standardButtons" >
-    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-   </property>
-  </widget>
+   <item>
+    <widget class="QGroupBox" name="groupClassification">
+     <property name="title">
+      <string>Classificação da Instalação Zootécnica</string>
+     </property>
+     <layout class="QGridLayout" name="gridClassification">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_type">
+        <property name="text">
+         <string>Tipo de Instalação:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QComboBox" name="comboBox_type"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_shape">
+        <property name="text">
+         <string>Forma Geométrica:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QComboBox" name="comboBox_shape"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupDimensions">
+     <property name="title">
+      <string>Dimensões Métricas</string>
+     </property>
+     <layout class="QGridLayout" name="gridDimensions">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_length">
+        <property name="text">
+         <string>Comprimento (m):</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QDoubleSpinBox" name="spinBox_length">
+        <property name="maximum">
+         <double>2000.0</double>
+        </property>
+        <property name="value">
+         <double>100.0</double>
+        </property>
+        <property name="singleStep">
+         <double>5.0</double>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_width">
+        <property name="text">
+         <string>Largura (m):</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QDoubleSpinBox" name="spinBox_width">
+        <property name="maximum">
+         <double>500.0</double>
+        </property>
+        <property name="value">
+         <double>12.0</double>
+        </property>
+        <property name="singleStep">
+         <double>1.0</double>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_radius">
+        <property name="text">
+         <string>Raio (m):</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QDoubleSpinBox" name="spinBox_radius">
+        <property name="maximum">
+         <double>500.0</double>
+        </property>
+        <property name="value">
+         <double>5.0</double>
+        </property>
+        <property name="singleStep">
+         <double>1.0</double>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_number">
+        <property name="text">
+         <string>Nº de Unidades:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QSpinBox" name="spinBox_number">
+        <property name="minimum">
+         <int>1</int>
+        </property>
+        <property name="maximum">
+         <int>50</int>
+        </property>
+        <property name="value">
+         <int>1</int>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_spacing">
+        <property name="text">
+         <string>Espaçamento entre Galpões (m):</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QDoubleSpinBox" name="spinBox_spacing">
+        <property name="maximum">
+         <double>200.0</double>
+        </property>
+        <property name="value">
+         <double>15.0</double>
+        </property>
+        <property name="singleStep">
+         <double>1.0</double>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupSpatial">
+     <property name="title">
+      <string>Posicionamento Espacial (Coordenadas de Referência)</string>
+     </property>
+     <layout class="QGridLayout" name="gridSpatial">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_x">
+        <property name="text">
+         <string>Coordenada X (Leste / Longitude):</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QDoubleSpinBox" name="spinBox_x">
+        <property name="decimals">
+         <number>4</number>
+        </property>
+        <property name="minimum">
+         <double>-20000000.0</double>
+        </property>
+        <property name="maximum">
+         <double>20000000.0</double>
+        </property>
+        <property name="value">
+         <double>0.0</double>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_y">
+        <property name="text">
+         <string>Coordenada Y (Norte / Latitude):</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QDoubleSpinBox" name="spinBox_y">
+        <property name="decimals">
+         <number>4</number>
+        </property>
+        <property name="minimum">
+         <double>-20000000.0</double>
+        </property>
+        <property name="maximum">
+         <double>20000000.0</double>
+        </property>
+        <property name="value">
+         <double>0.0</double>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0" colspan="2">
+       <widget class="QPushButton" name="btn_capture_map_center">
+        <property name="text">
+         <string>📍 Obter Coordenadas do Centro da Tela do QGIS</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupSummary">
+     <property name="title">
+      <string>Estimativas Agronômicas &amp; Biosseguridade</string>
+     </property>
+     <layout class="QVBoxLayout" name="layoutSummary">
+      <item>
+       <widget class="QLabel" name="label_summary_text">
+        <property name="text">
+         <string>Área: - | Capacidade estimada: - | Buffer Sanitário: -</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="styleSheet">
+         <string>color: #2c3e50; font-weight: bold;</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="button_box">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections>
@@ -247,32 +270,12 @@
    <signal>accepted()</signal>
    <receiver>SuinoAlphaDialogBase</receiver>
    <slot>accept()</slot>
-   <hints>
-    <hint type="source_label" >
-     <x>248</x>
-     <y>254</y>
-    </hint>
-    <hint type="destination_label" >
-     <x>157</x>
-     <y>274</y>
-    </hint>
-   </hints>
   </connection>
   <connection>
    <sender>button_box</sender>
    <signal>rejected()</signal>
    <receiver>SuinoAlphaDialogBase</receiver>
    <slot>reject()</slot>
-   <hints>
-    <hint type="source_label" >
-     <x>316</x>
-     <y>260</y>
-    </hint>
-    <hint type="destination_label" >
-     <x>286</x>
-     <y>274</y>
-    </hint>
-   </hints>
   </connection>
  </connections>
 </ui>

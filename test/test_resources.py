@@ -10,35 +10,30 @@
 
 __author__ = 'adriano.godoy@gmail.com'
 __date__ = '2025-10-18'
-__copyright__ = 'Copyright 2025, Adriano Lopes Godoy - EPP'
+__copyright__ = 'Copyright 2025, Adriano Lopes Godoy'
 
 import unittest
 
-from qgis.PyQt.QtGui import QIcon
+try:
+    from qgis.PyQt.QtGui import QIcon
+    import resources  # pylint: disable=unused-import
+    HAS_QT = True
+except ImportError:
+    HAS_QT = False
 
 
-
-class SuinoAlphaDialogTest(unittest.TestCase):
-    """Test rerources work."""
-
-    def setUp(self):
-        """Runs before each test."""
-        pass
-
-    def tearDown(self):
-        """Runs after each test."""
-        pass
+class SuinoAlphaResourcesTest(unittest.TestCase):
+    """Test compiled Qt resources work properly."""
 
     def test_icon_png(self):
-        """Test we can click OK."""
-        path = ':/plugins/SuinoAlpha/icon.png'
+        """Test plugin icon resource is accessible."""
+        if not HAS_QT:
+            self.skipTest("PyQt/QGIS not available in current environment")
+
+        path = ':/plugins/suino_alpha/icon.png'
         icon = QIcon(path)
-        self.assertFalse(icon.isNull())
+        self.assertFalse(icon.isNull(), "Icon resource should not be null")
+
 
 if __name__ == "__main__":
-    suite = unittest.makeSuite(SuinoAlphaResourcesTest)
-    runner = unittest.TextTestRunner(verbosity=2)
-    runner.run(suite)
-
-
-
+    unittest.main()

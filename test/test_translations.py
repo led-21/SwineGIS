@@ -1,24 +1,16 @@
 # coding=utf-8
-"""Safe Translations Test.
+"""Safe Translations Test."""
 
-.. note:: This program is free software; you can redistribute it and/or modify
-     it under the terms of the GNU General Public License as published by
-     the Free Software Foundation; either version 2 of the License, or
-     (at your option) any later version.
-
-"""
-from .utilities import get_qgis_app
-
-__author__ = 'ismailsunni@yahoo.co.id'
-__date__ = '12/10/2011'
-__copyright__ = ('Copyright 2012, Australia Indonesia Facility for '
-                 'Disaster Reduction')
 import unittest
 import os
 
-from qgis.PyQt.QtCore import QCoreApplication, QTranslator
-
-QGIS_APP = get_qgis_app()
+try:
+    from qgis.PyQt.QtCore import QCoreApplication, QTranslator
+    from .utilities import get_qgis_app
+    QGIS_APP = get_qgis_app()
+    HAS_QT = True
+except ImportError:
+    HAS_QT = False
 
 
 class SafeTranslationsTest(unittest.TestCase):
@@ -36,10 +28,12 @@ class SafeTranslationsTest(unittest.TestCase):
 
     def test_qgis_translations(self):
         """Test that translations work."""
+        if not HAS_QT or QGIS_APP is None:
+            self.skipTest("PyQt/QGIS not available in current environment")
+
         parent_path = os.path.join(__file__, os.path.pardir, os.path.pardir)
         dir_path = os.path.abspath(parent_path)
-        file_path = os.path.join(
-            dir_path, 'i18n', 'af.qm')
+        file_path = os.path.join(dir_path, 'i18n', 'af.qm')
         translator = QTranslator()
         translator.load(file_path)
         QCoreApplication.installTranslator(translator)
@@ -50,6 +44,4 @@ class SafeTranslationsTest(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    suite = unittest.makeSuite(SafeTranslationsTest)
-    runner = unittest.TextTestRunner(verbosity=2)
-    runner.run(suite)
+    unittest.main()

@@ -1,25 +1,21 @@
 # coding=utf-8
-"""Dialog test.
-
-.. note:: This program is free software; you can redistribute it and/or modify
-     it under the terms of the GNU General Public License as published by
-     the Free Software Foundation; either version 2 of the License, or
-     (at your option) any later version.
-
-"""
-
-__author__ = 'adriano.godoy@gmail.com'
-__date__ = '2025-10-18'
-__copyright__ = 'Copyright 2025, Adriano Lopes Godoy - EPP'
+"""Dialog test."""
 
 import unittest
 
-from qgis.PyQt.QtGui import QDialogButtonBox, QDialog
+__author__ = 'adriano.godoy@gmail.com'
+__date__ = '2025-10-18'
+__copyright__ = 'Copyright 2025, Adriano Lopes Godoy'
 
-from suino_alpha_dialog import SuinoAlphaDialog
-
-from utilities import get_qgis_app
-QGIS_APP = get_qgis_app()
+try:
+    from qgis.PyQt.QtWidgets import QDialogButtonBox, QDialog
+    from suino_alpha_dialog import SuinoAlphaDialog
+    from .utilities import get_qgis_app
+    QGIS_APP, _, _, _ = get_qgis_app()
+    HAS_QT = True
+except ImportError:
+    HAS_QT = False
+    QGIS_APP = None
 
 
 class SuinoAlphaDialogTest(unittest.TestCase):
@@ -27,6 +23,8 @@ class SuinoAlphaDialogTest(unittest.TestCase):
 
     def setUp(self):
         """Runs before each test."""
+        if not HAS_QT or QGIS_APP is None:
+            self.skipTest("PyQt/QGIS application not available")
         self.dialog = SuinoAlphaDialog(None)
 
     def tearDown(self):
@@ -35,7 +33,6 @@ class SuinoAlphaDialogTest(unittest.TestCase):
 
     def test_dialog_ok(self):
         """Test we can click OK."""
-
         button = self.dialog.button_box.button(QDialogButtonBox.Ok)
         button.click()
         result = self.dialog.result()
@@ -48,8 +45,6 @@ class SuinoAlphaDialogTest(unittest.TestCase):
         result = self.dialog.result()
         self.assertEqual(result, QDialog.Rejected)
 
-if __name__ == "__main__":
-    suite = unittest.makeSuite(SuinoAlphaDialogTest)
-    runner = unittest.TextTestRunner(verbosity=2)
-    runner.run(suite)
 
+if __name__ == "__main__":
+    unittest.main()
