@@ -89,7 +89,9 @@ class SuinoAlpha:
 
     def initGui(self):
         """Create menu entries and toolbar icons in QGIS."""
-        icon_path = ':/plugins/suino_alpha/icon.png'
+        icon_path = os.path.join(self.plugin_dir, 'icon.png')
+        if not os.path.exists(icon_path):
+            icon_path = ':/plugins/suino_alpha/icon.png'
         self.add_action(
             icon_path,
             text=self.tr('Planejar Instalações Suinícolas'),
