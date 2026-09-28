@@ -5,10 +5,16 @@ import os
 from typing import Optional
 
 from qgis.PyQt import uic, QtWidgets
-from ..core.domain.models import FacilityType, ShapeType, FacilitySpecification
-from ..core.domain.standards import SWINE_STANDARDS
-from ..core.services.planner import SwineFacilityPlannerService
-from ..core.domain.validators import ValidationError
+try:
+    from ..core.domain.models import FacilityType, ShapeType, FacilitySpecification
+    from ..core.domain.standards import SWINE_STANDARDS
+    from ..core.services.planner import SwineFacilityPlannerService
+    from ..core.domain.validators import ValidationError
+except (ImportError, ValueError):
+    from core.domain.models import FacilityType, ShapeType, FacilitySpecification
+    from core.domain.standards import SWINE_STANDARDS
+    from core.services.planner import SwineFacilityPlannerService
+    from core.domain.validators import ValidationError
 
 UI_PATH = os.path.join(
     os.path.dirname(os.path.dirname(__file__)),

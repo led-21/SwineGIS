@@ -2,7 +2,10 @@
 """Generates QGIS vector layers from planning results."""
 
 from typing import Tuple, Optional
-from ..core.domain.models import PlanningResult, ShapeType
+try:
+    from ..core.domain.models import PlanningResult, ShapeType
+except (ImportError, ValueError):
+    from core.domain.models import PlanningResult, ShapeType
 
 try:
     from qgis.core import (
